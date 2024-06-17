@@ -83,7 +83,7 @@ Ensure you have the following Python libraries installed to run the code:
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/your_username/your_repository.git
+   git clone https://github.com/Michs224/Patients-Condition-Classification-Using-Drug-Reviews.git
    ```
 
 2. Install dependencies:
