@@ -51,7 +51,7 @@ def ProportionTopConditions(n_top=5):
     plt.tight_layout()
     st.pyplot(fig)
 
-img_mask = PIL.Image.open(current_dir +'./Med1.jpg')
+img_mask = PIL.Image.open(current_dir +'/Med1.jpg')
 img_mask = np.array(img_mask)
 def plot_wordcloud(class_label=None):
     if class_label:
