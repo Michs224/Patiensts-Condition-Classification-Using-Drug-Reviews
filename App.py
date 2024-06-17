@@ -213,7 +213,7 @@ def LoadTestData():
     return x_test, y_test
 
 
-st.title("Patient's-Condition-Classification-Using-Drug-Reviews")
+st.title("Patient's Condition Classification Using Drug Reviews")
 
 st.sidebar.title("Model")
 model_name = st.sidebar.selectbox("Choose model", ["Passive Aggressive Classifier", "Logistic Regression", 
