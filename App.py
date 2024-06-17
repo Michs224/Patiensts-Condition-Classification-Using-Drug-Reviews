@@ -159,27 +159,27 @@ def CleanWords(text):
     return " ".join(words)
     
 # Load LabelEncoder
-le = joblib.load(current_dir +'./label_encoder.pkl')
+le = joblib.load(current_dir +'/label_encoder.pkl')
 
 # Load TFIDFVectorizer
-tfidf_vecto_ubigram = joblib.load(current_dir +'./Bag of Words/tfidf_vectorizer_(1,2)-gram.pkl')
+tfidf_vecto_ubigram = joblib.load(current_dir +'/Bag of Words/tfidf_vectorizer_(1,2)-gram.pkl')
 
 model = None
 @st.cache_data
 def LoadModel(model_name):
     global model
     if model_name == "Passive Aggressive Classifier":
-        model = joblib.load(current_dir +"./Models/pac_tfidf_(1,2)-gram_model.pkl")
+        model = joblib.load(current_dir +"/Models/pac_tfidf_(1,2)-gram_model.pkl")
     elif model_name == "Logistic Regression":
-        model = joblib.load(current_dir +"./Models/lr_tfidf_(1,2)-gram_model.pkl")
+        model = joblib.load(current_dir +"/Models/lr_tfidf_(1,2)-gram_model.pkl")
     elif model_name == "Naive Bayes":
-        model = joblib.load(current_dir +"./Models/mnb_tfidf_(1,2)-gram_model.pkl")  
+        model = joblib.load(current_dir +"/Models/mnb_tfidf_(1,2)-gram_model.pkl")  
     elif model_name == ("K-Nearest Neighbors"):
-        model = joblib.load(current_dir +"./Models/knn_tfidf_(1,2)-gram_model.pkl") 
+        model = joblib.load(current_dir +"/Models/knn_tfidf_(1,2)-gram_model.pkl") 
     elif model_name == "Support Vector Machine":
-        model = joblib.load(current_dir +"./Models/svc_tfidf_(1,2)-gram_model.pkl")
+        model = joblib.load(current_dir +"/Models/svc_tfidf_(1,2)-gram_model.pkl")
     elif model_name == "XGBoost":
-        model = joblib.load(current_dir +"./Models/xgb_tfidf_(1,2)-gram_model.pkl")
+        model = joblib.load(current_dir +"/Models/xgb_tfidf_(1,2)-gram_model.pkl")
     return model
 
 # Function to predict the condition of the patient and the top 3 drugs for the condition
@@ -212,8 +212,8 @@ def Accuracy(y_true,y_pred):
 
 @st.cache_data
 def LoadTestData():
-    x_test = joblib.load(current_dir +'./Data/tfidf_test_ubigram.pkl')
-    y_test = joblib.load(current_dir +'./Data/label_test.pkl')
+    x_test = joblib.load(current_dir +'/Data/tfidf_test_ubigram.pkl')
+    y_test = joblib.load(current_dir +'/Data/label_test.pkl')
     return x_test, y_test
 
 
