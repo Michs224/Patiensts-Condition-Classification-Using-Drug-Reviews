@@ -1,5 +1,5 @@
 # Patiensts Condition Classification Using Drug Reviews
- Patienst's Condition Classification Using Drug Reviews
+![image](https://github.com/Michs224/Patients-Condition-Classification-Using-Drug-Reviews/assets/128117104/1e01cb36-d59b-45d6-bacf-d5d6dbcd56f2)
 
 ---
 
@@ -59,8 +59,13 @@ The models were evaluated using the following metrics:
 #### Files Included
 
 - `Main.ipynb`: Jupyter Notebook containing the entire project code including data preprocessing, model training, evaluation, and results visualization.
-- `DrugsComPatient_raw.csv`: Combined dataset after preprocessing.
 - `Models/`: Directory containing saved trained models (`xgb_tfidf_(1,2)-gram_model.pkl`, `lr_tfidf_(1,2)-gram_model.pkl`, etc.)
+
+  _For other models, you can download it at the link in the `Link Models.txt` file._
+- `Bag of Words/`: Contains the vectorizers for Count Vectorizer and TF-IDF.
+- `Word Embedding/`: Contains the Word2Vec model.
+- `Data/`: Contains the train and test data that has been vectorized.
+- `drug review dataset drugs.com/`: Contains the raw and preprocessed dataset files.
 
 ---
 
