@@ -61,7 +61,7 @@ The models were evaluated using the following metrics:
 - `Main.ipynb`: Jupyter Notebook containing the entire project code including data preprocessing, model training, evaluation, and results visualization.
 - `Models/`: Directory containing saved trained models (`xgb_tfidf_(1,2)-gram_model.pkl`, `lr_tfidf_(1,2)-gram_model.pkl`, etc.)
 
-  _For other models, you can download it at the link in the `Link Models.txt` file._
+  _For other models, you can download it at the link in the `Link to Models.txt` file._
 - `Bag of Words/`: Contains the vectorizers for Count Vectorizer and TF-IDF.
 - `Word Embedding/`: Contains the Word2Vec model.
 - `Data/`: Contains the train and test data that has been vectorized.
