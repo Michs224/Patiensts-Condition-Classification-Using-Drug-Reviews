@@ -21,9 +21,9 @@ from nltk.corpus import stopwords
 import PIL
 import os
 
-import nltk
-nltk.download('stopwords')
-nltk.download('wordnet')
+# import nltk
+# nltk.download('stopwords')
+# nltk.download('wordnet')
 
 # Get current folder path
 current_dir = os.path.dirname(__file__)
