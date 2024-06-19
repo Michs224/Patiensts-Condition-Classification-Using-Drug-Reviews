@@ -70,18 +70,19 @@ The models were evaluated using the following metrics:
 
 ---
 
-#### Dependencies
-
-Ensure you have the following Python libraries installed to run the code:
-- pandas
-- numpy
-- sklearn
-- seaborn
-- matplotlib
-- xgboost
-- gensim
-- nltk
-- BeautifulSoup
+#### Prerequisites
+- Python 3.10.*
+- Jupyter Notebook
+- Required Python libraries:
+   - pandas
+   - numpy
+   - sklearn
+   - seaborn
+   - matplotlib
+   - xgboost
+   - gensim
+   - nltk
+   - BeautifulSoup
 
 ---
 
