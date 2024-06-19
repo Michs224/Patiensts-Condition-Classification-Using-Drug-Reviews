@@ -146,7 +146,7 @@ The models were evaluated using the following metrics:
    ```
 3. Create a virtual environment with Python 3.10:
    ```bash
-   python -m venv myenv
+   py -3.10 -m venv myenv
    ```
 4. Activate the virtual environment:
    - On Windows:
