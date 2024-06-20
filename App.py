@@ -3,6 +3,7 @@ import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 import seaborn as sns
+from sklearn.utils import shuffle
 from wordcloud import WordCloud
 from sklearn.linear_model import LogisticRegression, PassiveAggressiveClassifier
 from sklearn.naive_bayes import MultinomialNB
@@ -33,6 +34,8 @@ current_dir = os.path.dirname(__file__)
 def LoadDataset():
     data1 = pd.read_csv(current_dir +'/drug review dataset drugs.com/drugsComTrain_raw.tsv',sep='\t')
     data2 = pd.read_csv(current_dir +'/drug review dataset drugs.com/drugsComTest_raw.tsv',sep='\t')
+    df = pd.concat([data1,data2],axis=0)
+    df=shuffle(df,random_state=0).reset_index(drop=True)
     return pd.concat([data1,data2],axis=0)
 
 main_data = LoadDataset()
