@@ -156,7 +156,7 @@ def LemmatizeWord(words):
             lemmatized_words.append(word)
     return lemmatized_words
 
-@st.cache(allow_output_mutation=True)
+@st.cache_data
 def CleanWords(text):
     # 1. Remove HTML
     review_text = BeautifulSoup(text,'html.parser').get_text()
