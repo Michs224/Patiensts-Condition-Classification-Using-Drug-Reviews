@@ -30,7 +30,7 @@ nltk.download('wordnet')
 current_dir = os.path.dirname(__file__)
 # print(current_folder)
 
-@st.cache_resource
+@st.cache_data
 def LoadDataset():
     data1 = pd.read_csv(current_dir +'/drug review dataset drugs.com/drugsComTrain_raw.tsv',sep='\t')
     data2 = pd.read_csv(current_dir +'/drug review dataset drugs.com/drugsComTest_raw.tsv',sep='\t')
@@ -39,6 +39,7 @@ def LoadDataset():
     # print("Dataset Loaded!")
     return df
 
+main_data=None
 main_data = LoadDataset()
 print("Dataset Loaded!")
 x = main_data[['condition','review']]
