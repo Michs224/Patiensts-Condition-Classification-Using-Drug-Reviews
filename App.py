@@ -31,8 +31,8 @@ current_dir = os.path.dirname(__file__)
 
 @st.cache_data()
 def LoadDataset():
-    data1 = pd.read_csv(current_dir +'./drug review dataset drugs.com/drugsComTrain_raw.tsv',sep='\t')
-    data2 = pd.read_csv(current_dir +'./drug review dataset drugs.com/drugsComTest_raw.tsv',sep='\t')
+    data1 = pd.read_csv(current_dir +'/drug review dataset drugs.com/drugsComTrain_raw.tsv',sep='\t')
+    data2 = pd.read_csv(current_dir +'/drug review dataset drugs.com/drugsComTest_raw.tsv',sep='\t')
     return pd.concat([data1,data2],axis=0)
 
 main_data = LoadDataset()
