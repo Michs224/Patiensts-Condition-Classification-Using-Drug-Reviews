@@ -3,7 +3,6 @@ import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 import seaborn as sns
-from sklearn.utils import shuffle
 from wordcloud import WordCloud
 from sklearn.linear_model import LogisticRegression, PassiveAggressiveClassifier
 from sklearn.naive_bayes import MultinomialNB
@@ -22,26 +21,19 @@ from nltk.corpus import stopwords
 import PIL
 import os
 
-import nltk
-nltk.download('stopwords')
-nltk.download('wordnet')
+# import nltk
+# nltk.download('stopwords')
+# nltk.download('wordnet')
 
 # Get current folder path
 current_dir = os.path.dirname(__file__)
 # print(current_folder)
 
-@st.cache_data
+@st.cache_data()
 def LoadDataset():
-    data1 = pd.read_csv(current_dir +'/drug review dataset drugs.com/drugsComTrain_raw.tsv',sep='\t')
-    data2 = pd.read_csv(current_dir +'/drug review dataset drugs.com/drugsComTest_raw.tsv',sep='\t')
-    df = pd.concat([data1,data2],axis=0)
-    df=shuffle(df,random_state=0).reset_index(drop=True)
-    # print("Dataset Loaded!")
-    return df
+    return pd.read_pickle(current_dir + '/drug review dataset drugs.com/DrugsComPatient_raw.pkl')
 
-main_data=None
 main_data = LoadDataset()
-print("Dataset Loaded!")
 x = main_data[['condition','review']]
 
 condition = main_data['condition'].value_counts()
@@ -158,7 +150,7 @@ def LemmatizeWord(words):
             lemmatized_words.append(word)
     return lemmatized_words
 
-@st.cache_data
+@st.cache(allow_output_mutation=True)
 def CleanWords(text):
     # 1. Remove HTML
     review_text = BeautifulSoup(text,'html.parser').get_text()
@@ -250,16 +242,16 @@ x_test, y_test = LoadTestData()
 y_pred = model.predict(x_test)
 
 if 'menu' not in st.session_state:
-    st.session_state['menu'] = 'Proportion'
+    st.session_state['menu'] = 'Dataset'
 
 def set_menu(menu_name):
     st.session_state['menu'] = menu_name
 
 st.sidebar.title("Menu")
-if st.sidebar.button("Proportion Conditions"):
-    set_menu('Proportion')
 if st.sidebar.button("Dataset"):
     set_menu('Dataset')
+if st.sidebar.button("Top Proportion Conditions"):
+    set_menu('Proportion')
 if st.sidebar.button("Word Cloud"):
     set_menu('Word Cloud')
 if st.sidebar.button("Most Important Features"):
@@ -274,7 +266,7 @@ if st.session_state['menu'] == 'Dataset':
     st.dataframe(data=data)
 
 if st.session_state['menu'] == 'Proportion':
-    st.header("Proportion Conditions",divider="rainbow")
+    st.header("Top Proportion Conditions",divider="rainbow")
     n_top = st.slider("Select Top n Conditions",min_value=3,max_value=len(data['condition'].unique()),step=1)
     ProportionTopConditions(n_top)
 
