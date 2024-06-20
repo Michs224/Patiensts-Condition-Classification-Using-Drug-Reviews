@@ -32,7 +32,7 @@ current_dir = os.path.dirname(__file__)
 @st.cache_data()
 def LoadDataset():
     return pd.read_pickle(current_dir + '/drug review dataset drugs.com/DrugsComPatient_raw.pkl')
-print("YUHUU")
+
 main_data = LoadDataset()
 x = main_data[['condition','review']]
 
@@ -63,7 +63,6 @@ def ProportionTopConditions(n_top=5):
 
 img_mask = PIL.Image.open(current_dir +'/Med1.jpg')
 img_mask = np.array(img_mask)
-
 @st.cache_data
 def PlotWordCloud(class_label=None):
     if class_label:
