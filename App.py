@@ -29,7 +29,7 @@ nltk.download('wordnet')
 current_dir = os.path.dirname(__file__)
 # print(current_folder)
 
-@st.cache_cache(allow_output_mutation=True)
+@st.cache_data(allow_output_mutation=True)
 def LoadDataset():
     return pd.read_pickle(current_dir + '/drug review dataset drugs.com/DrugsComPatient_raw.pkl')
 
