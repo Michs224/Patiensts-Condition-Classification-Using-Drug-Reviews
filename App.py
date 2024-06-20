@@ -65,7 +65,7 @@ img_mask = PIL.Image.open(current_dir +'/Med1.jpg')
 img_mask = np.array(img_mask)
 
 @st.cache_data
-def plot_wordcloud(class_label=None):
+def PlotWordCloud(class_label=None):
     if class_label:
         data = x[x['condition'] == class_label]['review']
     fig =plt.figure(figsize=(10,8))
@@ -274,7 +274,7 @@ if st.session_state['menu'] == 'Proportion':
 if st.session_state['menu'] == "Word Cloud":
     st.header("Word Cloud",divider="rainbow")
     class_label = st.selectbox("Choose Class for WordCloud", data['condition'].unique())
-    plot_wordcloud(class_label)
+    PlotWordCloud(class_label)
 
 if st.session_state['menu'] == "Features":
     st.header("Most Important Features",divider="rainbow")
