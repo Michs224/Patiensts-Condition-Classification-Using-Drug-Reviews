@@ -32,7 +32,7 @@ current_dir = os.path.dirname(__file__)
 @st.cache_data()
 def LoadDataset():
     return pd.read_pickle(current_dir + '/drug review dataset drugs.com/DrugsComPatient_raw.pkl')
-
+print("YUHUU")
 main_data = LoadDataset()
 x = main_data[['condition','review']]
 
