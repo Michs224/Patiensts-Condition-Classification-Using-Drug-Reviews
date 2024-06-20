@@ -41,6 +41,7 @@ valid = condition[condition>=4000].index
 data = main_data[main_data['condition'].isin(valid)]
 data = data.drop("Unnamed: 0",axis=1).reset_index(drop=True)
 
+@st.cache_data
 def ProportionTopConditions(n_top=5):
     condition_counts = data["condition"].value_counts()
     valid_condition = condition_counts.head(n_top).index
@@ -59,8 +60,11 @@ def ProportionTopConditions(n_top=5):
     plt.tight_layout()
     st.pyplot(fig)
 
+
 img_mask = PIL.Image.open(current_dir +'/Med1.jpg')
 img_mask = np.array(img_mask)
+
+@st.cache_data
 def plot_wordcloud(class_label=None):
     if class_label:
         data = x[x['condition'] == class_label]['review']
@@ -74,7 +78,8 @@ def plot_wordcloud(class_label=None):
     plt.tight_layout()
     fig.patch.set_alpha(0)
     st.pyplot(fig)
-    
+
+@st.cache_data  
 def PlotMostImportantFeature(class_label,top_features=10):
     feature_names = tfidf_vecto_ubigram.get_feature_names_out()
     class_index = le.transform([class_label])[0]
@@ -170,6 +175,7 @@ le = joblib.load(current_dir +'/label_encoder.pkl')
 tfidf_vecto_ubigram = joblib.load(current_dir +'/Bag of Words/tfidf_vectorizer_(1,2)-gram.pkl')
 
 model = None
+
 @st.cache_data
 def LoadModel(model_name):
     global model
@@ -188,12 +194,14 @@ def LoadModel(model_name):
     return model
 
 # Function to predict the condition of the patient and the top 3 drugs for the condition
+@st.cache_data
 def ExtractTopDrugs(label):
     data_top = data[(data['rating']>=9) & (data['usefulCount']>=100)].sort_values(by=['rating','usefulCount'],ascending=[False, False])
     data_top.head()
     drug_list = data_top[data_top['condition']==label]['drugName'][:3].tolist()
     return drug_list
 
+@st.cache_data
 def PredictCondition(text):
     global model
     text = [CleanWords(text)]
