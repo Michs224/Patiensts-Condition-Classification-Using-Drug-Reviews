@@ -254,10 +254,10 @@ def set_menu(menu_name):
     st.session_state['menu'] = menu_name
 
 st.sidebar.title("Menu")
+if st.sidebar.button("Proportion Conditions"):
+    set_menu('Proportion')
 if st.sidebar.button("Dataset"):
     set_menu('Dataset')
-if st.sidebar.button("Top Proportion Conditions"):
-    set_menu('Proportion')
 if st.sidebar.button("Word Cloud"):
     set_menu('Word Cloud')
 if st.sidebar.button("Most Important Features"):
@@ -272,7 +272,7 @@ if st.session_state['menu'] == 'Dataset':
     st.dataframe(data=data)
 
 if st.session_state['menu'] == 'Proportion':
-    st.header("Top Proportion Conditions",divider="rainbow")
+    st.header("Proportion Conditions",divider="rainbow")
     n_top = st.slider("Select Top n Conditions",min_value=3,max_value=len(data['condition'].unique()),step=1)
     ProportionTopConditions(n_top)
 
