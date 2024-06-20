@@ -36,6 +36,7 @@ def LoadDataset():
     data2 = pd.read_csv(current_dir +'/drug review dataset drugs.com/drugsComTest_raw.tsv',sep='\t')
     df = pd.concat([data1,data2],axis=0)
     df=shuffle(df,random_state=0).reset_index(drop=True)
+    print("Dataset Loaded!")
     return df
 
 main_data = LoadDataset()
