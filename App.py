@@ -29,7 +29,11 @@ nltk.download('wordnet')
 current_dir = os.path.dirname(__file__)
 # print(current_folder)
 
-main_data = pd.read_pickle(current_dir + '/drug review dataset drugs.com/DrugsComPatient_raw.pkl')
+@st.cache(allow_output_mutation=True)
+def LoadDataset():
+    return pd.read_pickle(current_dir + '/drug review dataset drugs.com/DrugsComPatient_raw.pkl')
+
+main_data = LoadDataset()
 x = main_data[['condition','review']]
 
 condition = main_data['condition'].value_counts()
@@ -142,6 +146,7 @@ def LemmatizeWord(words):
             lemmatized_words.append(word)
     return lemmatized_words
 
+@st.cache(allow_output_mutation=True)
 def CleanWords(text):
     # 1. Remove HTML
     review_text = BeautifulSoup(text,'html.parser').get_text()
