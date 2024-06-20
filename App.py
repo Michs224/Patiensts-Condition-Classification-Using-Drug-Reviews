@@ -248,7 +248,7 @@ x_test, y_test = LoadTestData()
 y_pred = model.predict(x_test)
 
 if 'menu' not in st.session_state:
-    st.session_state['menu'] = 'Dataset'
+    st.session_state['menu'] = 'Proportion'
 
 def set_menu(menu_name):
     st.session_state['menu'] = menu_name
