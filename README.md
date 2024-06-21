@@ -1,6 +1,7 @@
 # Patient's Condition Classification Using Drug Reviews
 #### Deploy on Streamlit: https://mich-patients-condition-classification-using-drug-reviews.streamlit.app/
 ![image](https://github.com/Michs224/Patients-Condition-Classification-Using-Drug-Reviews/assets/128117104/1e01cb36-d59b-45d6-bacf-d5d6dbcd56f2)
+#### Dataset Link: https://archive.ics.uci.edu/dataset/462/drug+review+dataset+drugs+com
 
 ---
 
