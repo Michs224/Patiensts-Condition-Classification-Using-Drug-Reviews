@@ -254,12 +254,12 @@ def set_menu(menu_name):
     st.session_state['menu'] = menu_name
 
 st.sidebar.title("Menu")
+if st.sidebar.button("Top Proportion Conditions"):
+    set_menu('Proportion')
 if st.sidebar.button("Dataset"):
     set_menu('Dataset')
 if st.sidebar.button("Clean Dataset (Preprocessing)"):
     set_menu('Clean Dataset')
-if st.sidebar.button("Top Proportion Conditions"):
-    set_menu('Proportion')
 if st.sidebar.button("Word Cloud"):
     set_menu('Word Cloud')
 if st.sidebar.button("Most Important Features"):
