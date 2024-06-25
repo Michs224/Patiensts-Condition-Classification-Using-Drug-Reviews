@@ -21,9 +21,9 @@ from nltk.corpus import stopwords
 import PIL
 import os
 
-import nltk
-nltk.download('stopwords')
-nltk.download('wordnet')
+# import nltk
+# nltk.download('stopwords')
+# nltk.download('wordnet')
 
 # Get current folder path
 current_dir = os.path.dirname(__file__)
@@ -248,7 +248,7 @@ x_test, y_test = LoadTestData()
 y_pred = model.predict(x_test)
 
 if 'menu' not in st.session_state:
-    st.session_state['menu'] = 'Dataset'
+    st.session_state['menu'] = 'Proportion'
 
 def set_menu(menu_name):
     st.session_state['menu'] = menu_name
