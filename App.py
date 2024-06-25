@@ -33,7 +33,13 @@ current_dir = os.path.dirname(__file__)
 def LoadDataset():
     return pd.read_pickle(current_dir + '/drug review dataset drugs.com/DrugsComPatient_raw.pkl')
 
+@st.cache_data
+def LoadDatasetClean():
+    return pd.read_pickle(current_dir + '/drug review dataset drugs.com/DrugsComPatient_clean.pkl')
+
 main_data = LoadDataset()
+data_clean = LoadDatasetClean()
+
 x = main_data[['condition','review']]
 
 condition = main_data['condition'].value_counts()
@@ -250,6 +256,8 @@ def set_menu(menu_name):
 st.sidebar.title("Menu")
 if st.sidebar.button("Dataset"):
     set_menu('Dataset')
+if st.sidebar.button("Clean Dataset (Preprocessing)"):
+    set_menu('Clean Dataset')
 if st.sidebar.button("Top Proportion Conditions"):
     set_menu('Proportion')
 if st.sidebar.button("Word Cloud"):
@@ -264,6 +272,10 @@ if st.sidebar.button("Prediction"):
 if st.session_state['menu'] == 'Dataset':
     st.header("Dataset",divider="rainbow")
     st.dataframe(data=data)
+    
+if st.session_state['menu'] == 'Clean Dataset':
+    st.header("Clean Dataset (Preprocessing)",divider="rainbow")
+    st.dataframe(data=data_clean)
 
 if st.session_state['menu'] == 'Proportion':
     st.header("Top Proportion Conditions",divider="rainbow")
